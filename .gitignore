@@ -4,3 +4,5 @@ history.sqlite
 log/
 pid/
 security/
+__pycache__/
+*.pyc
