@@ -268,9 +268,6 @@ class SpecWriterCallback(object):
         lines.append("#D " + datetime.datetime.strftime(dt, "%c"))
         lines.append("#C " + self.spec_comment)
         # TODO: #O line(s)
-        for k, v in self.metadata.items():
-            # "#MD" is our ad hoc SPEC data tag
-            lines.append("#MD {} = {}".format(k, v))
 
         lines.append("")
         lines.append("#S " + self.scan_command)
@@ -285,6 +282,10 @@ class SpecWriterCallback(object):
             lines.append("#C " + v)
         for v in self.comments["descriptor"]:
             lines.append("#C " + v)
+
+        for k, v in self.metadata.items():
+            # "#MD" is our ad hoc SPEC data tag
+            lines.append("#MD {} = {}".format(k, v))
 
         lines.append("#N " + str(self.num_primary_data))
         lines.append("#L " + "  ".join(self.data.keys()))
