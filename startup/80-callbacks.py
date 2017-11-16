@@ -5,4 +5,4 @@ print(__file__)
 import APS_BlueSky_tools.callbacks
 
 doc_collector = APS_BlueSky_tools.callbacks.DocumentCollectorCallback()
-callback_db['doc_collector'] = RE.subscribe(doc_collector)
+callback_db['doc_collector'] = RE.subscribe(doc_collector.receiver)
