@@ -123,7 +123,7 @@ def swait_setup_incrementer(swait, scan=None, limit=100000):
 
 
 epics.caput("xxx:userCalcEnable", "Enable")
-calc1 = swaitRecord("xxx:userCalc1")
+calc1 = swaitRecord("xxx:userCalc1", name="calc1")
 
 
 if False:       # demo & testing code
