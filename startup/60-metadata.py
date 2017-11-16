@@ -30,6 +30,6 @@ USERNAME = getpass.getuser() or 'synApps_xxx_user'
 RE.md['login_id'] = USERNAME + '@' + HOSTNAME
 
 import os
-for key, value in os.environ.items():
-    if key.startswith("EPICS"):
-        RE.md[key] = value
+#for key, value in os.environ.items():
+#    if key.startswith("EPICS"):
+#        RE.md[key] = value
