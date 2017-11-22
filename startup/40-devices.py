@@ -1,6 +1,7 @@
 print(__file__)
 
-from APS_BlueSky_tools.devices import swaitRecord
+
+import APS_BlueSky_tools.devices
 
 # Set up default complex devices
 
@@ -17,10 +18,10 @@ from APS_BlueSky_tools.devices import swaitRecord
 
 #slit1 = XY_Slit()
 
-
-epics.caput("xxx:userCalcEnable", "Enable")
-calc1 = swaitRecord("xxx:userCalc1", name="calc1")
-# usersCalcs?  : mintvm-ipython-profile/startup/synApps_ophyd/
+scans = APS_BlueSky_tools.devices.sscanDevice("xxx:", name="scans")
+calcs = APS_BlueSky_tools.devices.userCalcsDevice("xxx:", name="calcs")
+calcs.enable.put("Enable")
+calc1 = calcs.calc1
 
 
 if False:       # demo & testing code
