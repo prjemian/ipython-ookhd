@@ -21,7 +21,7 @@ synthetic_pseudovoigt = SynPseudoVoigt(
     scale=1e5,
     bkg=0.01*np.random.uniform())
 
-if False:
+def tune_centroid_example():
     RE(bp.tune_centroid(
         [synthetic_pseudovoigt], 
         'synthetic_pseudovoigt',
