@@ -42,6 +42,9 @@ def fourc_example():
     see: http://www.rigaku.com/downloads/journal/Vol16.1.1999/cguide.pdf
     """
     
+    BlueskyMagics.positioners = list(fourc.real_positioners)
+    BlueskyMagics.positioners += list(fourc.pseudo_positioners)
+
     fourc.calc.new_sample('Mn3O4/MgO thin film', 
         lattice=Lattice(
             a=5.72, b=5.72, c=9.5, 
@@ -59,10 +62,7 @@ def fourc_example():
             tth=28.695, omega=14.4651, chi=-48.8860, phi=-88.758))
     fourc.calc.sample.compute_UB(r1, r2)
     
-    print(fourc.calc.forward((0, 0, 8)))
-    print(fourc.calc.forward((-2, -2, 4)))
-    print("(hkl) now=", fourc.position)
-    print("motors now=", fourc.real_position)
+    wa
     print("motors at (-2 1 1)", fourc.calc.forward((-2, 1, 1)))
     print("motors at (-3 0 5)", fourc.calc.forward((-3, 0, 5)))
     
@@ -71,4 +71,4 @@ def fourc_example():
     scaler.channels.read_attrs = ['chan1', 'chan2', 'chan3', 'chan6']
     RE(bp.scan([scaler, fourc.h, fourc.k, fourc.l, ], fourc.l, 0.5, 1.5, 11))
     
-    wa(list(fourc.real_positioners) + list(fourc.pseudo_positioners))
+    wa
