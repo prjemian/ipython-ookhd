@@ -1,22 +1,10 @@
 print(__file__)
 
+"""other signals"""
+
+# userCalcs = userCalcsDevice("ioc:", name="userCalcs")
 
 import APS_BlueSky_tools.devices
-
-# Set up default complex devices
-
-# FIXME: how to get the PVs to the inner parts?
-# TODO: How to build this up from previously-configured motors?
-
-#class SlitAxis(Device):
-#	lo = Cpt(EpicsMotor, '')
-#	hi = Cpt(EpicsMotor, '')
-
-#class XY_Slit(Device):
-#	h = Cpt(SlitAxis, '')
-#	v = Cpt(SlitAxis, '')
-
-#slit1 = XY_Slit()
 
 scans = APS_BlueSky_tools.devices.sscanDevice("xxx:", name="scans")
 calcs = APS_BlueSky_tools.devices.userCalcsDevice("xxx:", name="calcs")

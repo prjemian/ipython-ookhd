@@ -2,7 +2,7 @@ print(__file__)
 
 # Bluesky plans (scans)
 
-def simulate_peak_example():       # demo & testing code
+def demo_tuning():       # demo & testing code
 
     simulate_peak(calc1, m1, profile="lorentzian")
     RE(bp.tune_centroid([noisy], "noisy", m1, -2, 0, 0.00001, 10))

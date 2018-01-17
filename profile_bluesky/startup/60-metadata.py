@@ -18,3 +18,7 @@ import os
 #for key, value in os.environ.items():
 #    if key.startswith("EPICS"):
 #        RE.md[key] = value
+
+print("Metadata dictionary:")
+for k, v in sorted(RE.md.items()):
+    print("RE.md['%s']" % k, "=", v)
