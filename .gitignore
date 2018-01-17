@@ -8,3 +8,9 @@ security/
 __pycache__/
 *.pyc
 APS_BlueSky_tools/
+mViewer.log
+
+# eclipse IDE
+.project
+.pydevproject
+.settings
