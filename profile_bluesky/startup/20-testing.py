@@ -52,20 +52,3 @@ def initBitReset(bit, sseq, calc):
 
 initBitReset(bit1, sseq1, calc1)
 initBitReset(bit2, sseq2, calc2)
-
-
-def planB():
-    # yield from mv(bit1, 1, bit2, 1)
-    # yield from mv(bit1, 1)
-    # yield from mv(bit2, 1)
-    # each bit only set/reset once
-
-    # TODO: need to re-implement with wait
-    yield from abs_set(bit1, 1, group="A")
-    yield from abs_set(bit2, 1, wait=True)
-    print("group A")
-    yield from abs_set(bit1, 1, wait=True)
-    print("group B")
-    yield from abs_set(bit2, 1, wait=True)
-    print("group C")
-
