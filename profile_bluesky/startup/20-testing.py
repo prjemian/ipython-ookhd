@@ -50,5 +50,8 @@ def initBitReset(bit, sseq, calc):
     sseq.lnk1.put(calc.channels.A.value.pvname + " CP NMS")
     sseq.flnk.put(calc.prefix)
 
-initBitReset(bit1, sseq1, calc1)
-initBitReset(bit2, sseq2, calc2)
+try:
+    initBitReset(bit1, sseq1, calc1)
+    initBitReset(bit2, sseq2, calc2)
+except Exception as exc:
+    print(exc)
