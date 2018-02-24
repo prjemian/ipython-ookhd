@@ -142,12 +142,12 @@ det1 = SynGauss('det1', motor4, 'motor4', center=.42, Imax=0.98e5, sigma=.127)
 
 
 """ more ideas on generalized tuning, allow customized tuning
-Mixin
+Mixin    # goes in APS_BlueSky_tools.devices
     # Mixin MUST not provide __init__() method, instead use self.tuner.config()
     self.tuner is set to instance of AxisTuner
     self.tune(md=md, **kwargs) calls self.tuner.tune(md=md, **kwargs)
 
-class AxisTunerBase(object):
+class AxisTunerBase(object):    # goes in APS_BlueSky_tools.devices
     ok = False
     center = None
     def tune(md=md, **kwargs): ...
@@ -155,7 +155,7 @@ class AxisTunerBase(object):
     def peak_detected(): ...
 
 
-class PeakAxisTuner(AxisTunerBase):
+class PeakAxisTuner(AxisTunerBase):    # goes in APS_BlueSky_tools.devices
     # implement algorithm from SPEC here (tune to signal peak)
 
 # TODO:  other BlueSky tuning algorithms
