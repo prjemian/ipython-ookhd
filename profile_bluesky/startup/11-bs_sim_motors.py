@@ -35,11 +35,11 @@ class TunableAxisMixin_v1(object):
         det : obj
             detector object (must be provided on first use)
         start : float
-            axis starting position
+            axis starting position *relative* to pretune axis position
         finish : float
-            axis ending position
+            axis ending position *relative* to pretune axis position
         num : int
-            number of steps
+            number of points (number of steps + 1)
         time : float
             counting time (s) at each step
         md : dict
@@ -63,12 +63,16 @@ class TunableAxisMixin_v1(object):
         # additional metadata
         if md is None:
             md = OrderedDict()
+        md["tune"] = True
+        md["tune_name"] = "usaxs_motor_tune"
+        md["tune_datetime"] = str(datetime.now())
         md["tune_det"] = self.tune_det.name
         md["tune_axis"] = self.name
         md["tune_start"] = self.tune_start
         md["tune_finish"] = self.tune_finish
         md["tune_num"] = self.tune_num
         md["tune_time_s"] = self.tune_time_s
+        md["tune_pretune_position"] = self.tune_pretune_position
 
         # additional staging for tuning
         # use a class attribute as fallback in case restore is missed
@@ -131,7 +135,7 @@ class TunableAxisMixin_v1(object):
 class TunableSynAxis_v1(ophyd.sim.SynAxis, TunableAxisMixin_v1): pass
 
 motor4 = TunableSynAxis_v1(name='motor4')
-det_gaussian = SynGauss('det1', motor4, 'motor4', center=.42, Imax=0.98e5, sigma=.127)
+det1 = SynGauss('det1', motor4, 'motor4', center=.42, Imax=0.98e5, sigma=.127)
 
 
 #------------------------------------------------------------------
@@ -151,8 +155,8 @@ class AxisTunerBase(object):
     def peak_detected(): ...
 
 
-class UsaxsAxisTuner(AxisTunerBase):
-    # implement algorithm from SPEC here
+class PeakAxisTuner(AxisTunerBase):
+    # implement algorithm from SPEC here (tune to signal peak)
 
 # TODO:  other BlueSky tuning algorithms
 
