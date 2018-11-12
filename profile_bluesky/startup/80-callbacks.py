@@ -1,6 +1,6 @@
 print(__file__)
 
-# custom callbacks
+"""custom callbacks"""
 
 import APS_BlueSky_tools.callbacks
 import APS_BlueSky_tools.filewriters
