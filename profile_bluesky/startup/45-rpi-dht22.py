@@ -23,5 +23,12 @@ try:
     # sd.monitors.append(rpi5bf5)
     # raise this now:
     #  ValueError: Subscription type not set and object rpi5bf5 of class RpiDHT22 has no default subscription set
+    # A: must monitor a Signal, not a Device - it's the update rates that could be different
+    sd.monitors += [
+        rpi5bf5.humidity,
+        rpi5bf5.temperature,
+        rpi5bf5.status,
+        rpi5bf5.available
+    ]
 except Exception as exc:
     print("Could not connect RPi sensor:", exc)
