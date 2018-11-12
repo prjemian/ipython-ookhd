@@ -20,5 +20,8 @@ class RpiDHT22(Device):
 
 try:
     rpi5bf5 = RpiDHT22("rpi5bf5:0:", name="rpi5bf5")
+    # sd.monitors.append(rpi5bf5)
+    # raise this now:
+    #  ValueError: Subscription type not set and object rpi5bf5 of class RpiDHT22 has no default subscription set
 except Exception as exc:
     print("Could not connect RPi sensor:", exc)
