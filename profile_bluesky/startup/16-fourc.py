@@ -30,9 +30,11 @@ class Fourc(E4CV):
     # wa(list(fourc.real_positioners) + list(fourc.pseudo_positioners))
 
 
-fourc = Fourc('', name='fourc')
-
-fourc.calc.engine.mode = 'bissector'    # constrain tth = 2 * omega
+try:
+    fourc = Fourc('', name='fourc')
+    fourc.calc.engine.mode = 'bissector'    # constrain tth = 2 * omega
+except Exception as exc:
+    print("Could not connect fourc:", exc)
 
 
 def fourc_example():
